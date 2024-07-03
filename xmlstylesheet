@@ -1,0 +1,68 @@
+Topic2 - prg 1 (XML stylesheet)
+pr1.xml 
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="samp2.xsl"?>
+<CATALOG>
+<CD>
+<TITLE>Empire Burlesque</TITLE>
+<ARTIST>Bob Dylan</ARTIST>
+<COUNTRY>USA</COUNTRY>
+<COMPANY>Columbia</COMPANY>
+<PRICE>10.90</PRICE>
+<YEAR>1985</YEAR>
+</CD>
+<CD>
+<TITLE>Return of the Judai</TITLE>
+<ARTIST>Judas Priest</ARTIST>
+<COUNTRY>USA</COUNTRY>
+<COMPANY>Columbia</COMPANY>
+<PRICE>20.90</PRICE>
+<YEAR>1995</YEAR>
+</CD>
+<CD>
+<TITLE>Dangerous</TITLE>
+<ARTIST>Michael Jackson</ARTIST>
+<COUNTRY>USA</COUNTRY>
+<COMPANY>Sony</COMPANY>
+<PRICE>30.00</PRICE>
+<YEAR>1992</YEAR>
+</CD>
+</CATALOG>
+
+sample.xml
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:output method="html" version="4.01" indent="yes"/>
+<xsl:output doctype-system="http://www.w3.org/TR/html4/strict.dtd"/>
+<xsl:output doctype-public="-//W3C//DTD HTML 4.01//EN"/>
+<xsl:template match="/">
+<html>
+<body>
+<table border="2" bgcolor="cyan">
+<tr>
+<th>Title</th>
+<th>Artist</th>
+<th>Price</th>
+<th>Company</th>
+</tr>
+<xsl:for-each select="CATALOG/CD">
+<tr>
+<td>
+<xsl:value-of select="TITLE"/>
+</td>
+<td>
+<xsl:value-of select="ARTIST"/>
+</td>
+<td>
+<xsl:value-of select="PRICE"/>
+</td>
+<td>
+<xsl:value-of select="COMPANY"/>
+</td>
+</tr>
+</xsl:for-each>
+</table>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
