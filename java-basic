@@ -1,0 +1,161 @@
+class GradeBook
+{
+public void displayMessage()
+{
+System.out.println( "Welcome to the Grade Book!" );
+}
+}
+public class GradeBookTest
+{
+public static void main( String args[] )
+{
+GradeBook myGradeBook = new GradeBook();
+myGradeBook.displayMessage();
+}
+}
+OUTPUT:
+Program 2:
+class Box {
+double width;
+double height;
+double depth;
+Box() {
+}
+Box(double w, double h, double d) {
+width = w;
+height = h;
+depth = d;
+}
+void getVolume() {
+System.out.println("Volume is : " + width * height *
+depth);
+}
+}
+public class MatchBox extends Box {
+double weight;
+MatchBox() {
+}
+MatchBox(double w, double h, double d, double m) {
+super(w, h, d);
+weight = m;
+}
+public static void main(String args[]) {
+MatchBox mb1 = new MatchBox(10, 10, 10, 10);
+mb1.getVolume();
+System.out.println("width of MatchBox 1 is " +
+mb1.width);
+System.out.println("height of MatchBox 1 is " +
+mb1.height);
+System.out.println("depth of MatchBox 1 is " +
+mb1.depth);
+System.out.println("weight of MatchBox 1 is " +
+mb1.weight);
+}
+}
+OUTPUT:
+Program 3:
+class Fruit {
+public void show() {
+System.out.println("Fruit");
+}
+}
+class Banana extends Fruit {
+@Override
+public void show() {
+System.out.println("Banana");
+}
+public void makeBananaTree() {
+System.out.println("Making a tree");
+}
+}
+public class Application {
+public static void main(String[] args) {
+Fruit banana = new Banana();
+banana.show();
+}
+}
+OUTPUT:
+Program 4:
+interface check {
+public void message();
+}
+public class Interface {
+public static void main(String[] args) {
+try {
+check t = new check()
+{
+public void message()
+{
+System.out.println("Method defined in the interface");
+}
+};
+t.message();
+}
+catch (Exception ex) {
+System.out.println("" + ex.getMessage());
+}
+}
+}
+OUTPUT:
+Program 5:
+interface Area
+{
+float compute(float x, float y);
+}
+class Rectangle implements Area
+{
+public float compute(float x, float y)
+{
+return(x * y);
+}
+}
+class Triangle implements Area
+{
+public float compute(float x,float y)
+{
+return(x * y/2);
+}
+}
+public class InterfaceArea
+{
+public static void main(String args[])
+{
+Rectangle rect = new Rectangle();
+Triangle tri = new Triangle();
+Area area;
+area = rect;
+System.out.println("Area of Rectangle= "+ area.compute(1,2));
+area = tri;
+System.out.println("Area of Triangle = "+ area.compute(10,2));
+}
+}
+OUTPUT:
+Program 6:
+package mypack;
+public class Simple{
+public static void main(String args[]){
+System.out.println("Welcome to package");
+}
+}
+OUTPUT
+Welcome to package
+Program 7:
+public class DivideByZero
+{
+public static void main(String args[])
+{
+int d, a;
+try
+{
+d = 0;
+a = 42 / d;
+System.out.println("This will not be printed.");
+}
+catch (ArithmeticException e)
+{
+System.out.println("Division by zero.");
+}
+System.out.println("After catch statement.");
+}
+}
+OUTPUT
