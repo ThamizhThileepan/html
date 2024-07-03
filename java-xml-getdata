@@ -1,0 +1,45 @@
+import java.io.*;
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+public class pr1 {
+static public void main(String[] args) {
+if (args.length == 0) {
+System.out.println("Usage: DOMGetCharacters <filename>");
+System.exit(1);
+}
+String filename = args[0];
+try {
+DocumentBuilderFactory dbf =
+DocumentBuilderFactory.newInstance();
+DocumentBuilder db = dbf.newDocumentBuilder();
+Document doc = db.parse(new File(filename));
+Element svgElement = doc.getDocumentElement();
+NodeList nodeList = svgElement.getElementsByTagName("cd");
+Element gElement = (Element)nodeList.item(0);
+Element textElement =
+(Element)gElement.getElementsByTagName("name").item(0);
+Text contentNode = (Text)textElement.getFirstChild();
+String content = contentNode.getData();
+System.out.println("Content of the first <name> node is
+'"+ content + "'");
+String attValue = textElement.getAttribute("type");
+System.out.println("Its 'type' attribute '" + attValue +
+"'");
+}
+catch (Exception e) {
+e.printStackTrace();
+}
+}
+}
+sample3.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+<cd>
+<name type="permanent">ajith</name>
+<number>9876543392</number>
+</cd>
+<cd>
+<name type="temporary">arun</name>
+<number>8790948439</number>
+</cd>
+</catalog>
