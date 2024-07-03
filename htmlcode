@@ -1,0 +1,125 @@
+HTML - prog 1 - login page validation
+
+<html>
+<head>
+<title>Login Page</title>
+<script type="text/javascript">
+function validate(form) {
+var returnValue = true;
+if(frmLogin.txtUserName.value.length < 6) {
+returnValue = false;
+alert("Your username must be atleast \n6 characters long.\n
+Please try again." );
+frmLogin.txtUserName.value = "";
+frmLogin.txtUserName.focus();
+return returnValue;
+}
+if (frmLogin.txtPassword1.value.length < 6) {
+returnValue = false;
+alert("Password must be atleast 6 characters long.\nPlease
+try again. ");
+frmLogin.txtPassword1.value = "";
+frmLogin.txtPassword2.value = "";
+frmLogin.txtPassword1.focus();
+return returnValue;
+}
+if (frmLogin.txtPassword1.value != frmLogin.txtPassword2.value
+) {
+returnValue = false;
+alert("Password entries did not match.\n Please try again.
+");
+frmLogin.txtPassword1.value = "";
+frmLogin.txtPassword2.value = "";
+frmLogin.txtPassword1.focus();
+return returnValue;
+}
+if (returnValue != false) {
+alert("You are successfully logged in!");
+return returnValue;
+}
+}
+</script>
+</head>
+<body>
+<h1 align="center"> LOGIN </h1>
+<form name="frmLogin" method="post" action="" onsubmit="return
+validate(this);">
+<table align = "center"><tr>
+<td align="center">User Name<p></td>
+<td><input align="right" type="text" name="txtUserName" size=12
+/><p></td>
+</tr>
+<tr>
+<td align="center">Password<p></td>
+<td><input align="right" type="password" name="txtPassword1" size=12
+/><p></td>
+</tr>
+<tr>
+<td align="center">Confirm Password<p></td>
+<td><input align="right" type="password" name="txtPassword2" size=12
+/><p></td>
+</tr>
+<tr>
+<th colspan="2"><button>Submit</button></th>
+</tr>
+</table>
+</form>
+</body>
+</html>
+
+
+
+
+HTML - prog2 - windows action 
+<html>
+<head>
+<title>Playing with the Browser and Windows</title>
+</head>
+<body>
+<h1>Playing with the Browser and Windows</h1>
+<button onClick="window.close()">Close Window</button>
+<br/>
+<button onClick="window.print()">Print Window</button>
+<br/>
+<button onClick="window.history.go(-1);">Go Back</button>
+<br/>
+<button onClick="window.open('https://webdatabasebook.com',
+'BookSite',
+'toolbar=yes,location=yes,menubar=yes,directories=yes,scrollbar=yes,r
+esizable=yes');">Visit Book Site</button>
+<br/>
+</body>
+</html>
+
+
+HTML - prog 3 - Blank space validation
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple JavaScript Example</title>
+<script type="text/javascript">
+function containsblanks(s)
+{
+for(var i = 0; i< s.value.length; i++)
+{
+var c = s.value.charAt(i);
+if((c==' ') || (c=='\n') || (c=='\t'))
+{
+alert('The field must not contain whitespace');
+return false;
+}
+}
+return true;
+}
+</script>
+</head>
+<body>
+<h2>Username Form</h2>
+<form onSubmit="return(containsblanks(this.userName));"
+method="post">
+<input type="text" name="userName" size=10>
+<button>SUBMIT</button>
+</form>
+</body>
+</html>
+
